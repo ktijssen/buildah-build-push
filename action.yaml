@@ -55,6 +55,7 @@ runs:
             else
               imageId=$(buildah images --filter=reference=${NAME} --format "{{.ID}}" | head -1)
               buildah tag ${imageId} ${containerTag}
+            fi
           done
         }
 
