@@ -49,8 +49,12 @@ runs:
             else
               containerTag="${{ inputs.registry }}/${NAME}:${tag}"
             fi
-            # Run Buildah build
-            buildah bud -t $containerTag ${{ inputs.dockerfile }}
+            if ! [[ ${tag} == "latest" ]]; then
+              # Run Buildah build
+              buildah bud -t $containerTag ${{ inputs.dockerfile }}
+            else
+              imageId=$(buildah images --filter=reference=${NAME} --format "{{.ID}}" | head -1)
+              buildah tag ${imageId} ${containerTag}
           done
         }
 
