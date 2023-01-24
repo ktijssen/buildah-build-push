@@ -1,1 +1,2 @@
 # GitHub Action for Builah Build and Push
+[![Workflow: Create a New Tag](https://github.com/ktijssen/buildah-build-push/actions/workflows/github-pipeline.yaml/badge.svg)](https://github.com/ktijssen/buildah-build-push/actions/workflows/github-pipeline.yaml)
